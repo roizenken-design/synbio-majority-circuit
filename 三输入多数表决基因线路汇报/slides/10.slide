@@ -1,0 +1,45 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 40, top: 34, width: 1200, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 6, height: 32, background: '#1E4FA8' }} />
+            <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#0E3F8C' }}>鲁棒性：三个边界，一个隐患</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>04　仿真与验证</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 92, width: 1200, height: 1, background: '#D6DCE5' }} />
+
+    <Box style={{ position: 'absolute', left: 40, top: 110, width: 700 }}>
+        <Image src="assets/robustness.png" style={{ width: 700, height: 498, objectFit: 'contain' }} />
+        <Text style={{ fontSize: 13, color: '#8B97A8', textAlign: 'center', marginTop: 2 }}>
+            图 4　四类扰动下的逻辑正确性与误判率
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 770, top: 114, width: 470 }}>
+        {[
+            { v: '100%', k: '参数 ±15% 扰动', d: '300 组样本全部保持 8/8 正确；ON/OFF 中位数 21.3' },
+            { v: '≥ 0.6', k: '输入工作窗口（RPU）', d: '低于 0.4 失效；上限扫描至 3.0 仍正常' },
+            { v: '0.2%', k: '误判率（输入噪声 10%）', d: '噪声 20% 时升至 4.4%，25% 时约 6%' },
+        ].map((it) => (
+            <Box style={{ paddingTop: 12, paddingBottom: 12, borderBottom: '1px solid #E5E7EB' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 10 }}>
+                    <Text style={{ fontSize: 40, color: '#0E3F8C', fontWeight: 'bold', lineHeight: 1.1 }}>{it.v}</Text>
+                    <Text style={{ fontSize: 15, color: '#4A5568', marginBottom: 6 }}>{it.k}</Text>
+                </Box>
+                <Text style={{ fontSize: 14, color: '#8B97A8', marginTop: 3, lineHeight: 1.55 }}>{it.d}</Text>
+            </Box>
+        ))}
+
+        <Box style={{ marginTop: 14, padding: 14, background: '#FDF3F2', borderLeft: '4px solid #D9534F' }}>
+            <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.65 }}>
+                隐患：扰动最差样本的 ON/OFF 只有 <span style={{ fontWeight: 'bold', color: '#D9534F' }}>7.3</span>，低于规格线 10。实际构建应优先选高表达门（如 P3_PhlF，ymax 6.8）。
+            </Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 672, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计 · 三输入多数表决基因线路</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>10 / 13</Text>
+    </Box>
+</Slide>

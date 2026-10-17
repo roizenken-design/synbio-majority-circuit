@@ -1,0 +1,55 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 40, top: 34, width: 1200, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 6, height: 32, background: '#1E4FA8' }} />
+            <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#0E3F8C' }}>时序响应：快是相对的，慢是结构性的</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>04　仿真与验证</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 92, width: 1200, height: 1, background: '#D6DCE5' }} />
+
+    <Box style={{ position: 'absolute', left: 40, top: 110, width: 710, height: 463 }}>
+        <Image src="assets/timecourse.png" style={{ width: 710, height: 463, objectFit: 'contain' }} />
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 580, width: 710 }}>
+        <Text style={{ fontSize: 13, color: '#8B97A8', textAlign: 'center' }}>
+            图 3　输入切换下的输出响应；虚线为判决阈值
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 790, top: 118, width: 450 }}>
+        <Box style={{ padding: '18px 20px', background: '#0E3F8C', borderRadius: 8 }}>
+            <Text style={{ fontSize: 14, color: '#A9C3E8' }}>OFF→ON 上升时间（10%–90%）</Text>
+            <Box style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8 }}>
+                <Text style={{ fontSize: 68, color: '#FFFFFF', fontWeight: 'bold', lineHeight: 1.1 }}>110.5</Text>
+                <Text style={{ fontSize: 20, color: '#D5E3F6', marginBottom: 12 }}>min</Text>
+            </Box>
+            <Text style={{ fontSize: 14, color: '#D5E3F6' }}>两次 OFF→ON 跳变的均值</Text>
+        </Box>
+
+        <Box style={{ marginTop: 16 }}>
+            {[
+                { k: '单门时间常数', v: '43.3 min' },
+                { k: '级联层数', v: '3 层' },
+                { k: '延迟来源', v: '每层弛豫叠加' },
+            ].map((it) => (
+                <Box style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10, paddingBottom: 10, borderBottom: '1px solid #E5E7EB' }}>
+                    <Text style={{ fontSize: 16, color: '#4A5568' }}>{it.k}</Text>
+                    <Text style={{ fontSize: 16, color: '#0E3F8C', fontWeight: 'bold' }}>{it.v}</Text>
+                </Box>
+            ))}
+        </Box>
+
+        <Box style={{ marginTop: 16, padding: 14, background: '#FDF3F2', borderLeft: '4px solid #D9534F' }}>
+            <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.65 }}>
+                实验含义：若只观察 2 h，很可能在信号尚未建立时判为"电路不工作"。取样应<span style={{ fontWeight: 'bold', color: '#D9534F' }}>不早于 4 h</span>，并取 2/4/6 h 三个点看是否到稳。
+            </Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 672, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计 · 三输入多数表决基因线路</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>09 / 13</Text>
+    </Box>
+</Slide>

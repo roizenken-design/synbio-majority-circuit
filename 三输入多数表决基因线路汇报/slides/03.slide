@@ -1,0 +1,60 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 40, top: 34, width: 1200, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 6, height: 32, background: '#1E4FA8' }} />
+            <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#0E3F8C' }}>细胞如何做"多数表决"</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>01　选题与问题定义</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 92, width: 1200, height: 1, background: '#D6DCE5' }} />
+
+    <Box style={{ position: 'absolute', left: 40, top: 122, width: 610 }}>
+        <Text style={{ fontSize: 20, color: '#1A2230', lineHeight: 1.8 }}>
+            合成生物学的一个核心主张，是把细胞当作可编程的底物：用标准化的 DNA 元件搭逻辑门，让细胞对多个环境信号做出"计算"后的响应。
+        </Text>
+        <Text style={{ fontSize: 20, color: '#1A2230', lineHeight: 1.8, marginTop: 14 }}>
+            教材第 3 章把合成基因线路定义为"由不同功能的生物分子和基因元件组成的<span style={{ color: '#1E4FA8', fontWeight: 'bold' }}>自动控制装置</span>"，并按功能分为逻辑门线路与其他功能线路；第 2 章 2.4 节给出组合逻辑与前馈结构的分类。
+        </Text>
+        <Text style={{ fontSize: 20, color: '#1A2230', lineHeight: 1.8, marginTop: 14 }}>
+            本设计选其中最有"决策"意味的一个：<span style={{ color: '#0E3F8C', fontWeight: 'bold' }}>三个信号中至少两个为真，才启动响应</span>。它对应细胞在多重胁迫下的抗噪决策，避免单一信号误触发。
+        </Text>
+        <Box style={{ marginTop: 20, padding: 14, background: '#F0F5FC', borderLeft: '4px solid #1E4FA8' }}>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.55 }}>
+                为什么不做更复杂的计算？——课程设计只有两周、且没有湿实验条件。选一个能<span style={{ fontWeight: 'bold', color: '#0E3F8C' }}>穷举验证</span>的功能，才说得清"做对了没有"。
+            </Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 700, top: 122, width: 540, height: 492, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 24 }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8', letterSpacing: 1 }}>MECHANISM</Text>
+        <Text style={{ fontSize: 22, color: '#0E3F8C', fontWeight: 'bold', marginTop: 4 }}>三输入多数表决</Text>
+
+        <Box style={{ flexDirection: 'row', gap: 10, marginTop: 22 }}>
+            {['信号 A', '信号 B', '信号 C'].map((s) => (
+                <Box style={{ flex: 1, height: 48, background: '#FFFFFF', border: '1px solid #C7D8EF', borderRadius: 6, alignItems: 'center', justifyContent: 'center' }}>
+                    <Text style={{ fontSize: 16, color: '#1E4FA8', fontWeight: 'bold' }}>{s}</Text>
+                </Box>
+            ))}
+        </Box>
+        <Text style={{ fontSize: 20, color: '#9FB4CE', textAlign: 'center', marginTop: 8 }}>↓</Text>
+        <Box style={{ height: 60, background: '#1E4FA8', borderRadius: 8, alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={{ fontSize: 21, color: '#FFFFFF', fontWeight: 'bold' }}>≥ 2 个信号为真</Text>
+        </Box>
+        <Text style={{ fontSize: 20, color: '#9FB4CE', textAlign: 'center', marginTop: 8 }}>↓</Text>
+        <Box style={{ height: 54, background: '#FFFFFF', border: '2px solid #1E4FA8', borderRadius: 8, alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={{ fontSize: 19, color: '#0E3F8C', fontWeight: 'bold' }}>YFP 荧光输出</Text>
+        </Box>
+
+        <Box style={{ marginTop: 20, paddingTop: 14, borderTop: '1px solid #D6DCE5' }}>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>
+                生物学语义：三路胁迫信号中任意两路出现才响应，单路波动不触发——这是"投票"，不是"或"。
+            </Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 672, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计 · 三输入多数表决基因线路</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>03 / 13</Text>
+    </Box>
+</Slide>

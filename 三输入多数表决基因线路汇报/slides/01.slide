@@ -1,0 +1,40 @@
+<Slide style={{ width: 1280, height: 720, background: '#0E3F8C', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 6, height: 720, background: '#3D7BD9' }} />
+    <Box style={{ position: 'absolute', left: 80, top: 78, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+        <Box style={{ width: 36, height: 4, background: '#3D7BD9' }} />
+        <Text style={{ fontSize: 17, color: '#A9C3E8', letterSpacing: 2 }}>《合成生物学》课程设计</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 80, top: 168, width: 1050 }}>
+        <Text style={{ fontSize: 62, color: '#FFFFFF', fontWeight: 'bold', lineHeight: 1.22 }}>
+            三输入多数表决基因线路
+        </Text>
+        <Text style={{ fontSize: 34, color: '#D5E3F6', fontWeight: 'bold', marginTop: 14 }}>
+            自动化设计 · 动力学仿真 · 鲁棒性验证
+        </Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 80, top: 404, width: 900 }}>
+        <Text style={{ fontSize: 17, color: '#8FAED6', lineHeight: 1.5 }}>
+            A 3-Input Majority Voting Genetic Circuit: Automated Design,
+            <br />
+            Kinetic Simulation and Robustness Analysis
+        </Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 80, top: 500, width: 260, height: 3, background: '#3D7BD9' }} />
+    <Box style={{ position: 'absolute', left: 80, top: 540, flexDirection: 'row', gap: 56 }}>
+        <Box>
+            <Text style={{ fontSize: 14, color: '#7C9BC7' }}>汇 报 人</Text>
+            <Text style={{ fontSize: 20, color: '#FFFFFF', marginTop: 6 }}>＿＿＿＿＿</Text>
+        </Box>
+        <Box>
+            <Text style={{ fontSize: 14, color: '#7C9BC7' }}>学 号</Text>
+            <Text style={{ fontSize: 20, color: '#FFFFFF', marginTop: 6 }}>＿＿＿＿＿</Text>
+        </Box>
+        <Box>
+            <Text style={{ fontSize: 14, color: '#7C9BC7' }}>指导教师</Text>
+            <Text style={{ fontSize: 20, color: '#FFFFFF', marginTop: 6 }}>＿＿＿＿＿</Text>
+        </Box>
+    </Box>
+    <Box style={{ position: 'absolute', left: 80, top: 648 }}>
+        <Text style={{ fontSize: 15, color: '#7C9BC7' }}>2026 年 10 月　·　基于 Cello 自动设计平台与官方门库 Eco1C1G1T1</Text>
+    </Box>
+</Slide>

@@ -1,0 +1,52 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 40, top: 34, width: 1200, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 6, height: 32, background: '#1E4FA8' }} />
+            <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#0E3F8C' }}>稳态结果：8 种输入，8 种正确</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>04　仿真与验证</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 92, width: 1200, height: 1, background: '#D6DCE5' }} />
+
+    <Box style={{ position: 'absolute', left: 40, top: 110, width: 760, height: 436 }}>
+        <Image src="assets/truth_table.png" style={{ width: 760, height: 436, objectFit: 'contain' }} />
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 552, width: 760 }}>
+        <Text style={{ fontSize: 13, color: '#8B97A8', textAlign: 'center' }}>
+            图 2　8 种输入组合的稳态荧光输出；虚线为 1.0 RPU 判决阈值
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 830, top: 124, width: 410 }}>
+        <Box style={{ padding: '18px 20px', background: '#0E3F8C', borderRadius: 8 }}>
+            <Text style={{ fontSize: 14, color: '#A9C3E8' }}>逻辑正确性</Text>
+            <Text style={{ fontSize: 74, color: '#FFFFFF', fontWeight: 'bold', lineHeight: 1.05 }}>8/8</Text>
+            <Text style={{ fontSize: 14, color: '#D5E3F6' }}>全部输入组合判定正确</Text>
+        </Box>
+
+        <Box style={{ marginTop: 14, padding: '16px 20px', background: '#F0F5FC', border: '1px solid #C7D8EF', borderRadius: 8 }}>
+            <Text style={{ fontSize: 14, color: '#8B97A8' }}>ON / OFF 比值</Text>
+            <Text style={{ fontSize: 46, color: '#1E4FA8', fontWeight: 'bold', lineHeight: 1.1 }}>23.6×</Text>
+            <Text style={{ fontSize: 14, color: '#4A5568', lineHeight: 1.6, marginTop: 4 }}>
+                ON 3.65–10.11 RPU
+                <br />
+                OFF 0.096–0.154 RPU
+            </Text>
+        </Box>
+
+        <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.7, marginTop: 16 }}>
+            三个 ON 状态的电平并不相同：单支路导通时约 3.6 或 6.5，两支路同时导通时约 10.1。数字逻辑只关心是否越过阈值，模拟求和则保留了"几路在响应"的信息。
+        </Text>
+        <Box style={{ marginTop: 12, padding: 12, background: '#F7F9FC', borderLeft: '3px solid #3D7BD9' }}>
+            <Text style={{ fontSize: 14, color: '#4A5568', lineHeight: 1.55 }}>
+                规格要求 ON/OFF ≥ 10，实测 23.6，余量约 2.4 倍。
+            </Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 672, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计 · 三输入多数表决基因线路</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>08 / 13</Text>
+    </Box>
+</Slide>

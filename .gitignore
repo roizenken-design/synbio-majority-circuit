@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 中间产物
+docs/_math/
+docs/_preview*.pdf
+docs/_preview_pages/
+*.pyc
+
+# PPT 工具缓存
+.cache/
+.slidep/
+
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 临时
+~$*.docx
+~$*.pptx

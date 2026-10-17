@@ -1,0 +1,88 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 40, top: 34, width: 1200, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 6, height: 32, background: '#1E4FA8' }} />
+            <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#0E3F8C' }}>动力学模型：先把假设说清楚</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>03　动力学模型</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 92, width: 1200, height: 1, background: '#D6DCE5' }} />
+
+    <Box style={{ position: 'absolute', left: 40, top: 118, width: 620 }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8', letterSpacing: 1 }}>ASSUMPTIONS</Text>
+        <Text style={{ fontSize: 20, color: '#1A2230', marginTop: 6, lineHeight: 1.6 }}>
+            模型的可信度，取决于假设是否被明确写出、能否被质疑。
+        </Text>
+
+        {[
+            { n: 'H1', t: '门的稳态输出由 Hill 响应函数给出', d: 'Cello 的标准抽象，参数来自实测' },
+            { n: 'H2', t: '多输入 NOR 的输入取各信号之和', d: '阻遏蛋白竞争同一操纵子位点' },
+            { n: 'H3', t: 'NOT = 一个输入接恒定 0 的 NOR', d: '与 Cello 的 DNA 实现一致' },
+            { n: 'H4', t: '输出级为双启动子 OR', d: '两路转录之和 = 荧光；官方数据斜率≈1.02' },
+            { n: 'H5', t: '门浓度一阶弛豫', d: 'τ·dy/dt = f(S) − y' },
+        ].map((it, i) => (
+            <Box style={{ flexDirection: 'row', gap: 12, marginTop: 12, alignItems: 'flex-start' }}>
+                <Box style={{ width: 38, height: 26, background: '#1E4FA8', borderRadius: 4, alignItems: 'center', justifyContent: 'center' }}>
+                    <Text style={{ fontSize: 14, color: '#FFFFFF', fontWeight: 'bold' }}>{it.n}</Text>
+                </Box>
+                <Box style={{ width: 540 }}>
+                    <Text style={{ fontSize: 17, color: '#1A2230', fontWeight: 'bold' }}>{it.t}</Text>
+                    <Text style={{ fontSize: 14, color: '#8B97A8', marginTop: 1 }}>{it.d}</Text>
+                </Box>
+            </Box>
+        ))}
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 700, top: 118, width: 540 }}>
+        <Box style={{ padding: 20, background: '#F0F5FC', border: '1px solid #C7D8EF', borderRadius: 8 }}>
+            <Text style={{ fontSize: 13, color: '#8B97A8', letterSpacing: 1 }}>HILL RESPONSE</Text>
+            <Text style={{ fontSize: 21, color: '#0E3F8C', fontWeight: 'bold', marginTop: 8 }}>
+                y = ymin + (ymax − ymin) / (1 + (x/K)ⁿ)
+            </Text>
+            <Text style={{ fontSize: 14, color: '#4A5568', marginTop: 10, lineHeight: 1.6 }}>
+                ymin/ymax：门的高低电平；K：半最大输入；n：协同性。20 个门的参数全部来自官方文件。
+            </Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', gap: 12, marginTop: 14 }}>
+            <Box style={{ flex: 1, padding: 16, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 8 }}>
+                <Text style={{ fontSize: 13, color: '#8B97A8' }}>时间常数 τ = 1/γ</Text>
+                <Text style={{ fontSize: 40, color: '#0E3F8C', fontWeight: 'bold', marginTop: 2 }}>43.3</Text>
+                <Text style={{ fontSize: 13, color: '#4A5568' }}>min（倍增 30 min）</Text>
+            </Box>
+            <Box style={{ flex: 1, padding: 16, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 8 }}>
+                <Text style={{ fontSize: 13, color: '#8B97A8' }}>网络结构</Text>
+                <Text style={{ fontSize: 22, color: '#0E3F8C', fontWeight: 'bold', marginTop: 4 }}>无反馈 DAG</Text>
+                <Text style={{ fontSize: 13, color: '#4A5568', marginTop: 2 }}>稳态可解析求出</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ marginTop: 14, padding: 14, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 6 }}>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.65 }}>
+                因为网络是前馈的（无环），稳态与 ODE 积分到无穷远等价。因此：真值表用拓扑顺序解析求值，时序才用数值积分——这也是 300 组蒙特卡洛能在笔记本上跑完的原因。
+            </Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 528, width: 1200, height: 108, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 8, padding: '14px 20px' }}>
+        <Text style={{ fontSize: 13, color: '#8B97A8', letterSpacing: 1 }}>TRACEABILITY　参数溯源</Text>
+        <Box style={{ flexDirection: 'row', gap: 18, marginTop: 6 }}>
+            {[
+                { a: '门参数', b: 'UCF 文件的 response_functions 字段' },
+                { a: '时间常数', b: '倍增 30 min → γ = ln2/30' },
+                { a: '输出关系', b: '官方 OUTPUT_OR 表，斜率 1.02' },
+            ].map((it) => (
+                <Box style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 15, color: '#1E4FA8', fontWeight: 'bold' }}>{it.a}</Text>
+                    <Text style={{ fontSize: 13, color: '#4A5568', marginTop: 2, lineHeight: 1.4 }}>← {it.b}</Text>
+                </Box>
+            ))}
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 672, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计 · 三输入多数表决基因线路</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>07 / 13</Text>
+    </Box>
+</Slide>

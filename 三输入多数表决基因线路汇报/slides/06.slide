@@ -1,0 +1,63 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 40, top: 34, width: 1200, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 6, height: 32, background: '#1E4FA8' }} />
+            <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#0E3F8C' }}>布线结果：三层七门，逻辑可证</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>02　设计与布线</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 92, width: 1200, height: 1, background: '#D6DCE5' }} />
+
+    <Box style={{ position: 'absolute', left: 40, top: 112, width: 720 }}>
+        <Image src="assets/topology.png" style={{ width: 720, height: 441, objectFit: 'contain' }} />
+        <Text style={{ fontSize: 13, color: '#8B97A8', textAlign: 'center', marginTop: 4 }}>
+            图 1　Cello 自动布线结果（assignment A000）：三层级联，6 个内部逻辑门 + 1 个输出级
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 790, top: 118, width: 450 }}>
+        <Box style={{ flexDirection: 'row', gap: 10 }}>
+            {[
+                { v: '3', k: '层级' },
+                { v: '7', k: '门模块' },
+                { v: '6', k: '阻遏蛋白' },
+            ].map((s) => (
+                <Box style={{ flex: 1, background: '#F0F5FC', border: '1px solid #C7D8EF', borderRadius: 6, padding: 12, alignItems: 'center' }}>
+                    <Text style={{ fontSize: 34, color: '#0E3F8C', fontWeight: 'bold' }}>{s.v}</Text>
+                    <Text style={{ fontSize: 13, color: '#4A5568', marginTop: 2 }}>{s.k}</Text>
+                </Box>
+            ))}
+        </Box>
+
+        <Text style={{ fontSize: 17, color: '#1A2230', fontWeight: 'bold', marginTop: 22 }}>按门逐一展开，验证布尔等价</Text>
+        <Box style={{ marginTop: 10, padding: 16, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 6 }}>
+            <Text style={{ fontSize: 17, color: '#1A2230', lineHeight: 1.95 }}>
+                n6 = ¬A　　n5 = ¬B　　n2 = ¬C
+                <br />
+                n3 = ¬(A ∨ B)
+                <br />
+                n4 = ¬(n6 ∨ n5) = A ∧ B
+                <br />
+                n1 = ¬(n2 ∨ n3) = C ∧ (A ∨ B)
+            </Text>
+        </Box>
+
+        <Box style={{ marginTop: 16, padding: 14, background: '#E8EFF8', borderLeft: '4px solid #1E4FA8' }}>
+            <Text style={{ fontSize: 17, color: '#0E3F8C', fontWeight: 'bold', lineHeight: 1.6 }}>
+                OUT = n4 ∨ n1 = AB + C(A+B)
+                <br />
+                ≡ AB + AC + BC　✅ 与目标一致
+            </Text>
+        </Box>
+
+        <Text style={{ fontSize: 14, color: '#8B97A8', lineHeight: 1.6, marginTop: 12 }}>
+            这一步不能省：自动工具可能给出"能跑但语义不同"的方案，必须人工复核。
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 672, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计 · 三输入多数表决基因线路</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>06 / 13</Text>
+    </Box>
+</Slide>

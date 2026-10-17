@@ -1,0 +1,52 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 40, top: 34, width: 1200, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 6, height: 32, background: '#1E4FA8' }} />
+            <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#0E3F8C' }}>湿实验可行性：这件事能不能真做出来</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>05　落地与结论</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 92, width: 1200, height: 1, background: '#D6DCE5' }} />
+
+    <Box style={{ position: 'absolute', left: 40, top: 118, width: 1200, flexDirection: 'row', gap: 16 }}>
+        {[
+            { n: '01', t: '菌株与培养', d: '克隆 DH5α，表达 BL21(DE3) 或 MG1655。均为 BSL-1 非致病。LB 培养基，37 ℃、220 rpm。', k: 'BSL-1' },
+            { n: '02', t: '元件与组装', d: '6 个阻遏蛋白及同源启动子属 TetR 家族库，Registry / Addgene 可得。Golden Gate（BsaI）一锅法组装，菌落 PCR + 测序验证。', k: '2–3 质粒' },
+            { n: '03', t: '表征方案', d: '8 种输入 × 3 重复；按工作窗口标定诱导剂浓度；诱导后取 2/4/6 h；酶标仪测 YFP，OD600 归一化。', k: '≥ 4 h' },
+            { n: '04', t: '风险与预案', d: '门间串扰 → 选已验证正交家族；泄漏偏高 → 加终止子；生长负担 → 降拷贝数；组装失败 → 分步组装。', k: '4 项' },
+        ].map((it) => (
+            <Box style={{ width: 288, height: 358, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 8, padding: 18 }}>
+                <Text style={{ fontSize: 13, color: '#8B97A8', letterSpacing: 1 }}>{it.n}</Text>
+                <Text style={{ fontSize: 21, color: '#0E3F8C', fontWeight: 'bold', marginTop: 4, lineHeight: 1.35 }}>{it.t}</Text>
+                <Box style={{ width: 32, height: 3, background: '#3D7BD9', marginTop: 10 }} />
+                <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.75, marginTop: 10 }}>{it.d}</Text>
+                <Box style={{ marginTop: 'auto', alignSelf: 'flex-start', padding: '4px 10px', background: '#E8EFF8', borderRadius: 4 }}>
+                    <Text style={{ fontSize: 13, color: '#1E4FA8', fontWeight: 'bold' }}>{it.k}</Text>
+                </Box>
+            </Box>
+        ))}
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 494, width: 1200, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 8, padding: 18 }}>
+        <Box style={{ flexDirection: 'row', gap: 18 }}>
+            <Box style={{ width: 130 }}>
+                <Text style={{ fontSize: 13, color: '#8B97A8', letterSpacing: 1 }}>JUDGE</Text>
+                <Text style={{ fontSize: 18, color: '#0E3F8C', fontWeight: 'bold', marginTop: 2 }}>判读标准</Text>
+            </Box>
+            <Box style={{ flex: 1 }}>
+                <Text style={{ fontSize: 17, color: '#1A2230', lineHeight: 1.7 }}>
+                    ON/OFF ≥ 10 且 8 种组合全部正确，视为设计成功；同时设置空载体、单门、无诱导、阳性四组对照。
+                </Text>
+                <Text style={{ fontSize: 15, color: '#8B97A8', lineHeight: 1.65, marginTop: 6 }}>
+                    说明：本设计未做湿实验，以上为可行性论证。元件来源、组装方法、取样时间均由本设计的计算与门库信息推出，不含主观估计。
+                </Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 672, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计 · 三输入多数表决基因线路</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>12 / 13</Text>
+    </Box>
+</Slide>

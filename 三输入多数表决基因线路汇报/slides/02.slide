@@ -1,0 +1,38 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 0, top: 6, width: 380, height: 714, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 56, top: 170 }}>
+        <Text style={{ fontSize: 64, color: '#FFFFFF', fontWeight: 'bold', letterSpacing: 6 }}>目录</Text>
+        <Text style={{ fontSize: 15, color: '#8FAED6', letterSpacing: 4, marginTop: 10 }}>CONTENTS</Text>
+        <Box style={{ width: 44, height: 3, background: '#3D7BD9', marginTop: 28 }} />
+    </Box>
+    <Box style={{ position: 'absolute', left: 56, top: 470, width: 270 }}>
+        <Text style={{ fontSize: 16, color: '#A9C3E8', lineHeight: 1.8 }}>
+            一次设计能否成立，
+            <br />
+            取决于每一步是否可核对。
+        </Text>
+    </Box>
+
+    {[
+        { n: '01', t: '选题与问题定义', d: '生物计算、多数表决、真值表' },
+        { n: '02', t: '设计与布线', d: 'Cello 自动设计、门库、三层拓扑' },
+        { n: '03', t: '动力学模型', d: '五条假设、Hill 响应、时间常数' },
+        { n: '04', t: '仿真与验证', d: '稳态、时序、鲁棒性、外部校验' },
+        { n: '05', t: '落地与结论', d: '湿实验方案、创新点、局限' },
+    ].map((it, i) => (
+        <Box style={{ position: 'absolute', left: 452, top: 108 + i * 104, width: 780, flexDirection: 'row', alignItems: 'center', gap: 26 }}>
+            <Text style={{ fontSize: 30, color: '#B9CCE6', fontWeight: 'bold', width: 62 }}>{it.n}</Text>
+            <Box style={{ width: 2, height: 44, background: '#D6DCE5' }} />
+            <Box>
+                <Text style={{ fontSize: 26, color: '#1A2230', fontWeight: 'bold' }}>{it.t}</Text>
+                <Text style={{ fontSize: 15, color: '#8B97A8', marginTop: 4 }}>{it.d}</Text>
+            </Box>
+        </Box>
+    ))}
+
+    <Box style={{ position: 'absolute', left: 452, top: 668, width: 780, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>02 / 13</Text>
+    </Box>
+</Slide>

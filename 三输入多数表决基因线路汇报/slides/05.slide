@@ -1,0 +1,78 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 40, top: 34, width: 1200, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 6, height: 32, background: '#1E4FA8' }} />
+            <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#0E3F8C' }}>设计方法：把逻辑交给工具，把参数留给证据</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>02　设计与布线</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 92, width: 1200, height: 1, background: '#D6DCE5' }} />
+
+    <Box style={{ position: 'absolute', left: 40, top: 122, flexDirection: 'row', gap: 16 }}>
+        {[
+            { n: '01', t: 'Verilog 需求', d: '穷举 8 种输入' },
+            { n: '02', t: 'Yosys 综合', d: '转门级网表' },
+            { n: '03', t: '门库分配', d: 'UCF 约束搜索' },
+            { n: '04', t: '响应函数评估', d: '预测 ON/OFF' },
+        ].map((s, i) => (
+            <Box style={{ width: 284, height: 92, background: i === 3 ? '#1E4FA8' : '#F0F5FC', border: i === 3 ? 'none' : '1px solid #C7D8EF', borderRadius: 8, padding: 16 }}>
+                <Text style={{ fontSize: 13, color: i === 3 ? '#A9C3E8' : '#8B97A8', letterSpacing: 1 }}>STEP {s.n}</Text>
+                <Text style={{ fontSize: 20, color: i === 3 ? '#FFFFFF' : '#0E3F8C', fontWeight: 'bold', marginTop: 2 }}>{s.t}</Text>
+                <Text style={{ fontSize: 14, color: i === 3 ? '#D5E3F6' : '#4A5568', marginTop: 2 }}>{s.d}</Text>
+            </Box>
+        ))}
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 242, width: 470 }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8', letterSpacing: 1 }}>GATE LIBRARY</Text>
+        <Text style={{ fontSize: 24, color: '#0E3F8C', fontWeight: 'bold', marginTop: 4 }}>Eco1C1G1T1</Text>
+        <Text style={{ fontSize: 17, color: '#1A2230', lineHeight: 1.75, marginTop: 10 }}>
+            20 个 NOR 门，来自 6 个阻遏蛋白家族（AmtR、BM3R1、BetI、HlyIIR、PhlF、SrpR）。每个门都带实测 Hill 响应函数：
+        </Text>
+        <Box style={{ marginTop: 12, padding: 14, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 6 }}>
+            <Text style={{ fontSize: 18, color: '#0E3F8C' }}>y = ymin + (ymax − ymin) / (1 + (x/K)ⁿ)</Text>
+        </Box>
+        <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.7, marginTop: 12 }}>
+            关键细节：库里<span style={{ fontWeight: 'bold', color: '#0E3F8C' }}>只有 NOR 部件</span>，没有独立的 NOT 与 OR。NOT 由一输入接 0 的 NOR 实现，OR 由 NOR 再取非——用有限标准元件组合出复杂功能。
+        </Text>
+        <Box style={{ marginTop: 14, padding: 12, background: '#F0F5FC', borderLeft: '3px solid #1E4FA8' }}>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.55 }}>
+                这条约束决定了后面的建模方式：所有门都用 NOR 的响应函数描述。
+            </Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 550, top: 242, width: 690 }}>
+        <Text style={{ fontSize: 17, color: '#4A5568', marginBottom: 8 }}>本设计使用的 6 个门（参数直接读取自官方文件，未做手工调整）</Text>
+        <Table
+            style={{ width: 690, height: 372 }}
+            defaultTextStyle={{ fontSize: 15, textAlign: 'center', color: '#1A2230' }}
+            defaultCellStyle={{ border: { left: { width: 1, color: '#D6DCE5' }, right: { width: 1, color: '#D6DCE5' }, top: { width: 1, color: '#D6DCE5' }, bottom: { width: 1, color: '#D6DCE5' } } }}
+            cells={[
+                [
+                    { text: '门', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } },
+                    { text: '角色', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } },
+                    { text: 'ymin', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } },
+                    { text: 'ymax', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } },
+                    { text: 'K', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } },
+                    { text: 'n', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } },
+                ],
+                ['A1_AmtR', 'NOT', '0.060', '3.80', '0.070', '1.60'],
+                ['S2_SrpR', 'NOT', '0.003', '2.10', '0.040', '2.60'],
+                ['H1_HlyIIR', 'NOT', '0.070', '2.50', '0.190', '2.60'],
+                ['B3_BM3R1', 'NOR', '0.010', '0.80', '0.260', '3.40'],
+                ['E1_BetI', 'NOR', '0.070', '3.80', '0.410', '2.40'],
+                ['P3_PhlF', 'NOR', '0.020', '6.80', '0.230', '4.20'],
+            ]}
+        />
+        <Text style={{ fontSize: 14, color: '#8B97A8', marginTop: 8 }}>
+            来源：Cello 官方门库 Eco1C1G1T1.UCF.json（response_functions 字段）
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 672, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计 · 三输入多数表决基因线路</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>05 / 13</Text>
+    </Box>
+</Slide>

@@ -1,0 +1,75 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 40, top: 34, width: 1200, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 6, height: 32, background: '#1E4FA8' }} />
+            <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#0E3F8C' }}>结论与局限</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>05　落地与结论</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 92, width: 1200, height: 1, background: '#D6DCE5' }} />
+
+    <Box style={{ position: 'absolute', left: 40, top: 118, width: 600 }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8', letterSpacing: 1 }}>CONCLUSIONS</Text>
+        <Text style={{ fontSize: 24, color: '#0E3F8C', fontWeight: 'bold', marginTop: 2 }}>三条结论</Text>
+
+        {[
+            { n: '1', t: '功能正确', d: '三层七门线路在模型层面 8/8 正确，且与官方工具的计算结果高度一致（r = 0.9996）。' },
+            { n: '2', t: '足够鲁棒', d: '±15% 参数扰动下 100% 正确；输入噪声 10% 时误判率 0.2%。但最差样本 ON/OFF 仅 7.3，接近规格边界。' },
+            { n: '3', t: '有速度代价', d: '上升时间 110.5 min，是三层级联的结构性结果；实验取样必须据此安排。' },
+        ].map((it) => (
+            <Box style={{ flexDirection: 'row', gap: 12, marginTop: 18 }}>
+                <Box style={{ width: 28, height: 28, background: '#1E4FA8', borderRadius: 14, alignItems: 'center', justifyContent: 'center' }}>
+                    <Text style={{ fontSize: 15, color: '#FFFFFF', fontWeight: 'bold' }}>{it.n}</Text>
+                </Box>
+                <Box style={{ width: 540 }}>
+                    <Text style={{ fontSize: 19, color: '#1A2230', fontWeight: 'bold' }}>{it.t}</Text>
+                    <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.7, marginTop: 2 }}>{it.d}</Text>
+                </Box>
+            </Box>
+        ))}
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 690, top: 118, width: 550 }}>
+        <Box style={{ background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 8, padding: 20, height: 300 }}>
+            <Text style={{ fontSize: 14, color: '#8B97A8', letterSpacing: 1 }}>LIMITATIONS</Text>
+            <Text style={{ fontSize: 24, color: '#0E3F8C', fontWeight: 'bold', marginTop: 2 }}>三点局限</Text>
+            <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.95, marginTop: 10 }}>
+                ① 模型是 Hill 稳态抽象，未含资源竞争、生长负担、mRNA 寿命。
+                <br />
+                ② 门库版本与官方示例不同，绝对 RPU 不可比，只做归一化比较。
+                <br />
+                ③ 没有湿实验数据，第 12 页是"纸面推演"，需实验检验。
+            </Text>
+        </Box>
+
+        <Box style={{ marginTop: 14, padding: 14, background: '#F0F5FC', borderLeft: '4px solid #1E4FA8' }}>
+            <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.65 }}>
+                下一步：用 Cello 网页版跑一次自己的布线，比对本次 assignment 是否稳定；有条件时先做单门表征，再拼整条线路。
+            </Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 520, width: 1200, height: 92, background: '#0E3F8C', borderRadius: 8, padding: '16px 24px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 20, color: '#FFFFFF', fontWeight: 'bold' }}>
+            一句话：参数可追溯、结果可复现、边界说得清。
+        </Text>
+        <Box style={{ flexDirection: 'row', gap: 28 }}>
+            {[
+                { v: '8/8', k: '逻辑' },
+                { v: '0.9996', k: 'r' },
+                { v: '110.5 min', k: '延迟' },
+            ].map((s) => (
+                <Box style={{ alignItems: 'center' }}>
+                    <Text style={{ fontSize: 24, color: '#FFFFFF', fontWeight: 'bold' }}>{s.v}</Text>
+                    <Text style={{ fontSize: 12, color: '#A9C3E8' }}>{s.k}</Text>
+                </Box>
+            ))}
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 672, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计 · 三输入多数表决基因线路</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>13 / 13</Text>
+    </Box>
+</Slide>

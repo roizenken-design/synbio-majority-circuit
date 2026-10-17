@@ -1,0 +1,85 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 40, top: 34, width: 1200, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 6, height: 32, background: '#1E4FA8' }} />
+            <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#0E3F8C' }}>需求形式化：一张真值表定输赢</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>01　选题与问题定义</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 92, width: 1200, height: 1, background: '#D6DCE5' }} />
+
+    <Box style={{ position: 'absolute', left: 40, top: 126 }}>
+        <Text style={{ fontSize: 17, color: '#4A5568', marginBottom: 10 }}>输入输出定义（A = pTet，B = pBAD，C = pTac）</Text>
+        <Table
+            style={{ width: 520, height: 404 }}
+            defaultTextStyle={{ fontSize: 18, textAlign: 'center', color: '#1A2230' }}
+            defaultCellStyle={{ border: { left: { width: 1, color: '#D6DCE5' }, right: { width: 1, color: '#D6DCE5' }, top: { width: 1, color: '#D6DCE5' }, bottom: { width: 1, color: '#D6DCE5' } } }}
+            cells={[
+                [
+                    { text: 'A', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+                    { text: 'B', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+                    { text: 'C', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+                    { text: '输出', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+                ],
+                ['0', '0', '0', { text: '0', textStyle: { color: '#8B97A8' } }],
+                ['0', '0', '1', { text: '0', textStyle: { color: '#8B97A8' } }],
+                ['0', '1', '0', { text: '0', textStyle: { color: '#8B97A8' } }],
+                [
+                    { text: '0', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '1', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '1', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '1', textStyle: { color: '#1E4FA8', bold: true }, cellStyle: { background: { color: '#E8EFF8' } } },
+                ],
+                ['1', '0', '0', { text: '0', textStyle: { color: '#8B97A8' } }],
+                [
+                    { text: '1', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '0', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '1', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '1', textStyle: { color: '#1E4FA8', bold: true }, cellStyle: { background: { color: '#E8EFF8' } } },
+                ],
+                [
+                    { text: '1', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '1', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '0', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '1', textStyle: { color: '#1E4FA8', bold: true }, cellStyle: { background: { color: '#E8EFF8' } } },
+                ],
+                [
+                    { text: '1', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '1', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '1', cellStyle: { background: { color: '#E8EFF8' } } },
+                    { text: '1', textStyle: { color: '#1E4FA8', bold: true }, cellStyle: { background: { color: '#E8EFF8' } } },
+                ],
+            ]}
+        />
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 620, top: 126, width: 620 }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8', letterSpacing: 1 }}>BOOLEAN EXPRESSION</Text>
+        <Box style={{ marginTop: 10, padding: '22px 26px', background: '#F0F5FC', border: '1px solid #C7D8EF', borderRadius: 8 }}>
+            <Text style={{ fontSize: 38, color: '#0E3F8C', fontWeight: 'bold' }}>Y = AB + AC + BC</Text>
+            <Text style={{ fontSize: 20, color: '#4A5568', marginTop: 10 }}>等价写法：Y = AB + C(A + B)</Text>
+        </Box>
+
+        <Text style={{ fontSize: 18, color: '#1A2230', fontWeight: 'bold', marginTop: 26 }}>为什么这个定义适合课程设计</Text>
+
+        {[
+            { k: '可穷举', v: '只有 8 种输入组合，"8/8 正确"是可证伪的硬指标，不依赖主观判断。' },
+            { k: '有语义', v: '三取二对应细胞抗噪决策；单路波动不会误触发，这正是"投票"与"或"的差别。' },
+            { k: '有基准', v: 'Cello 官方测试库含 majority 电路（assignment A000），可与官方结果对照。' },
+        ].map((it) => (
+            <Box style={{ flexDirection: 'row', gap: 14, marginTop: 14 }}>
+                <Box style={{ width: 4, background: '#3D7BD9', borderRadius: 2 }} />
+                <Box style={{ width: 560 }}>
+                    <Text style={{ fontSize: 18, color: '#0E3F8C', fontWeight: 'bold' }}>{it.k}</Text>
+                    <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.6, marginTop: 2 }}>{it.v}</Text>
+                </Box>
+            </Box>
+        ))}
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 672, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计 · 三输入多数表决基因线路</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>04 / 13</Text>
+    </Box>
+</Slide>

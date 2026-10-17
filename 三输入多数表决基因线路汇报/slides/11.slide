@@ -1,0 +1,48 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 6, background: '#0E3F8C' }} />
+    <Box style={{ position: 'absolute', left: 40, top: 34, width: 1200, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 6, height: 32, background: '#1E4FA8' }} />
+            <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#0E3F8C' }}>外部校验：和官方工具对一次账</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>04　仿真与验证</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 40, top: 92, width: 1200, height: 1, background: '#D6DCE5' }} />
+
+    <Box style={{ position: 'absolute', left: 40, top: 106, width: 880 }}>
+        <Image src="assets/cello_cmp.png" style={{ width: 880, height: 336, objectFit: 'contain' }} />
+        <Text style={{ fontSize: 13, color: '#8B97A8', textAlign: 'center', marginTop: 2 }}>
+            图 5　本模型与 Cello 官方布线结果的对比
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 950, top: 120, width: 290 }}>
+        <Box style={{ padding: '16px 18px', background: '#0E3F8C', borderRadius: 8 }}>
+            <Text style={{ fontSize: 13, color: '#A9C3E8' }}>归一化相关系数 r</Text>
+            <Text style={{ fontSize: 46, color: '#FFFFFF', fontWeight: 'bold', lineHeight: 1.15 }}>0.9996</Text>
+            <Text style={{ fontSize: 13, color: '#D5E3F6' }}>8 个状态的曲线几乎完全重合</Text>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#4A5568', lineHeight: 1.7, marginTop: 14 }}>
+            绝对数值相差约 4 倍，原因是两者使用的门库版本不同（RPU 是相对单位）。<span style={{ fontWeight: 'bold', color: '#0E3F8C' }}>归一化后比较的是逻辑与能级结构，这才是可迁移的部分。</span>
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 500, width: 1200, flexDirection: 'row', gap: 16 }}>
+        {[
+            { t: '开关方向一致', d: '每个门在 8 种输入下的高/低方向与官方完全一致。' },
+            { t: '能级顺序一致', d: '[0,1,1] 最低、[1,0,1]≈[1,1,0]、[1,1,1] 最高，三个 ON 态的排序全部对上。' },
+            { t: '为什么这很重要', d: '模型不是"另起一套"，而是仅凭同一套参数复现了官方工具的行为。' },
+        ].map((it, i) => (
+            <Box style={{ flex: 1, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 8, padding: 16 }}>
+                <Text style={{ fontSize: 12, color: '#8B97A8', letterSpacing: 1 }}>0{i + 1}</Text>
+                <Text style={{ fontSize: 19, color: '#0E3F8C', fontWeight: 'bold', marginTop: 2 }}>{it.t}</Text>
+                <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.65, marginTop: 6 }}>{it.d}</Text>
+            </Box>
+        ))}
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 40, top: 672, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 14, color: '#8B97A8' }}>《合成生物学》课程设计 · 三输入多数表决基因线路</Text>
+        <Text style={{ fontSize: 14, color: '#1E4FA8' }}>11 / 13</Text>
+    </Box>
+</Slide>
